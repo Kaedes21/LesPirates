@@ -44,8 +44,9 @@ public class Narrateur implements IJournalDeBord {
 
 	@Override
 	public String annonceArriverCase(Pion pion, Case position) {
-		// TODO Auto-generated method stub
-		return null;
+		String texte = "Le pion " + pion.getCouleur() + " est maintenant sur la case " + position.getNumero(); 
+		texte += "\n";
+		return texte;
 	}
 
 	@Override

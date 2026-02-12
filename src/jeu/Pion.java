@@ -29,4 +29,5 @@ public class Pion {
 	{
 		return couleur.toString();
 	}
+	
 }

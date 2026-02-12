@@ -21,5 +21,10 @@ public class Main {
 		
 		joueur1.deplacerPion(6);
 		System.out.println(narrateur.annonceDeplacement(joueur1.getPion(),6));
+		System.out.println(narrateur.annonceArriverCase(joueur1.getPion(), joueur1.getPion().getCase()));
+		
+		joueur1.deplacerPion(3);
+		System.out.println(narrateur.annonceDeplacement(joueur1.getPion(),3));
+		System.out.println(narrateur.annonceArriverCase(joueur1.getPion(), joueur1.getPion().getCase()));
 	}
 }
