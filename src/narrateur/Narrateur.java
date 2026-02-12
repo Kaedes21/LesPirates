@@ -1,6 +1,5 @@
 package narrateur;
 
-import jeu.Case;
 import jeu.Joueur;
 import jeu.Pion;
 
@@ -26,12 +25,12 @@ public class Narrateur implements IJournalDeBord {
 
 	@Override
 	public String annonceDebutTour(Joueur joueur) {
-		// TODO Auto-generated method stub
-		return null;
+		String texte = "Au tour de " + joueur.getNom() + " !";
+		return texte;
 	}
 
 	@Override
-	public String annoneGagnant(Joueur joueur) {
+	public String annonceGagnant(Joueur joueur) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -43,14 +42,14 @@ public class Narrateur implements IJournalDeBord {
 	}
 
 	@Override
-	public String annonceArriverCase(Pion pion, Case position) {
-		String texte = "Le pion " + pion.getCouleur() + " est maintenant sur la case " + position.getNumero(); 
+	public String annonceArriverCase(Pion pion) {
+		String texte = "Le pion " + pion.getCouleur() + " est maintenant sur la case " + pion.getPosition(); 
 		texte += "\n";
 		return texte;
 	}
 
 	@Override
-	public String annonceEffetCase(Case position) {
+	public String annonceEffetCase(int position) {
 		// TODO Auto-generated method stub
 		return null;
 	}

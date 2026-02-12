@@ -2,7 +2,7 @@ package jeu;
 
 public class Pion {
 	private CouleurPion couleur;
-	private Case position;
+	private int position;
 	
 	public enum CouleurPion{
 		Rouge,
@@ -12,15 +12,15 @@ public class Pion {
 	public Pion(CouleurPion couleur, Plateau plateau)
 	{
 		this.couleur = couleur;
-		position = plateau.getCase(0);
+		position = 1;
 	}
 	
-	public Case getCase()
+	public int getPosition()
 	{
 		return position;
 	}
 	
-	public void setPosition(Case nouvellePosition)
+	public void setPosition(int nouvellePosition)
 	{
 		position = nouvellePosition;
 	}

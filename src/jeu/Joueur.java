@@ -41,16 +41,14 @@ public class Joueur {
 	
 	public void deplacerPion(int nbCases)
 	{
-		Case positionActuelle = pion.getCase();
-		int indexActuel = positionActuelle.getNumero();
-		int nouvelIndex = indexActuel + nbCases;
+		int positionActuelle = pion.getPosition();;
+		int nouvellePosition = positionActuelle + nbCases;
 		
-		if (nouvelIndex >= plateau.getNombreCases())
+		if (nouvellePosition >= plateau.getNombreCases())
 		{
-			nouvelIndex = plateau.getNombreCases() - 1;
+			nouvellePosition = plateau.getNombreCases();
 		}
 		
-		Case nouvelleCase = plateau.getCase(nouvelIndex);
-		pion.setPosition(nouvelleCase);
+		pion.setPosition(nouvellePosition);
 	}
 }

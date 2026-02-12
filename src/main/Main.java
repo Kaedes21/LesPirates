@@ -7,6 +7,8 @@ import jeu.Plateau;
 import narrateur.Narrateur;
 
 public class Main {
+	
+	private static int resultatDes;
 	public static void main(String[] args)
 	{
 		
@@ -15,16 +17,19 @@ public class Main {
 		Joueur joueur2 = new Joueur("Pirate2",CouleurPion.Rouge,plateau);
 		Narrateur narrateur = new Narrateur("Narrateur"); 
 		
-		Jeu jeu = new Jeu(joueur1,joueur2, plateau);
+		Jeu jeu = new Jeu(joueur1,joueur2);
 		jeu.commencerJeu();
 		System.out.println(narrateur.annonceDebutJeu(joueur1, joueur2));
 		
-		joueur1.deplacerPion(6);
-		System.out.println(narrateur.annonceDeplacement(joueur1.getPion(),6));
-		System.out.println(narrateur.annonceArriverCase(joueur1.getPion(), joueur1.getPion().getCase()));
 		
-		joueur1.deplacerPion(3);
-		System.out.println(narrateur.annonceDeplacement(joueur1.getPion(),3));
-		System.out.println(narrateur.annonceArriverCase(joueur1.getPion(), joueur1.getPion().getCase()));
+		while(jeu.verifierFinJeu()) {
+			System.out.println(narrateur.annonceDebutTour(joueur2));
+			resultatDes = plateau.lancerDes();
+			
+			joueur1.deplacerPion(resultatDes);
+			System.out.println(narrateur.annonceDeplacement(joueur1.getPion(),resultatDes));
+			System.out.println(narrateur.annonceArriverCase(joueur1.getPion()));
+		
+		}
 	}
 }

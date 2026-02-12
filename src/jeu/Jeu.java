@@ -4,13 +4,11 @@ public class Jeu {
 	
 	private Joueur joueur1;
 	private Joueur joueur2;
-	private Plateau plateau;
 	
-	public Jeu(Joueur joueur1,Joueur joueur2, Plateau plateau)
+	public Jeu(Joueur joueur1,Joueur joueur2)
 	{
 		this.joueur1 = joueur1;
 		this.joueur2 = joueur2;
-		this.plateau = plateau;
 	}
 	public void commencerJeu()
 	{
@@ -24,8 +22,6 @@ public class Jeu {
 	
 	public boolean verifierFinJeu()
 	{
-		boolean isFinish = false;
-		
-		return isFinish;
+		return !(joueur1.getPion().getPosition() == 30 || joueur2.getPion().getPosition() ==30);
 	}
 }
