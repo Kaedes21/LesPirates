@@ -8,15 +8,15 @@ public class Plateau {
 
     public Plateau() { attributionCases(); }
 
-    public int lancerDes() { return de1.lancerDe() + de2.lancerDe(); }
+    
 
     public int getNombreCases() { return cases.length; }
 
     private void attributionCases() {
         for (int i = 0; i < cases.length; i++) {
             double tirage = Math.random();
-            if (tirage < 0.1) cases[i] = new CaseRhum(i);
-            else if (tirage < 0.2) cases[i] = new CasePacte(i);
+            if (tirage < 0.2) cases[i] = new CaseRhum(i);
+            else if (tirage < 0.4) cases[i] = new CasePacte(i);
             else cases[i] = new Case(i);
         }
     }
@@ -25,5 +25,15 @@ public class Plateau {
         if (position < 0) position = 0;
         if (position >= cases.length) position = cases.length - 1;
         return cases[position];
+    }
+    
+    public De getDe1()
+    {
+    	return de1;
+    }
+    
+    public De getDe2()
+    {
+    	return de2;
     }
 }

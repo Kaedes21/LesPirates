@@ -42,6 +42,9 @@ public class Joueur {
     	return effet;
     }
     
+    public int lancerDes(Plateau plateau) { return plateau.getDe1().lancerDe() + plateau.getDe2().lancerDe(); }
+    public int lancerDeUnique(Plateau plateau) { return plateau.getDe1().lancerDe();}
+    
     public void setEffet(JoueurEffet effet) {
     	this.effet= effet;
     }
@@ -50,7 +53,7 @@ public class Joueur {
 
         int position = pion.getPosition();
         int derniereCase = plateau.getNombreCases(); // 30
-
+        
         position += nbCases;
 
         while (position > derniereCase) {

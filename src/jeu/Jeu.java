@@ -28,8 +28,16 @@ public class Jeu {
 
             System.out.println(narrateur.annonceDebutTour(joueurEnCours, tour));
             tour++;
-
-            int resultatDes = plateau.lancerDes();
+            
+            int resultatDes = joueurEnCours.lancerDes(plateau);
+            if (joueurEnCours.getEffet() == JoueurEffet.IVRE)
+            {
+            	resultatDes = -resultatDes;
+            }
+            else if (joueurEnCours.getEffet() == JoueurEffet.PACTE)
+            {
+            	resultatDes += joueurEnCours.lancerDeUnique(plateau);
+            }
             System.out.println(narrateur.annonceLancementDes(joueurEnCours, resultatDes));
 
             System.out.println(narrateur.annonceDeplacement(joueurEnCours));
