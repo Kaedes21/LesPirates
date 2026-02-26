@@ -1,39 +1,38 @@
 package jeu;
 
+import cases.Case;
+import cases.CaseTresor;
+import cases.CaseNormale;
+import cases.CasePacte;
+import cases.CaseRhum;
+
 public class Plateau {
 
-    private Case[] cases = new Case[30];
-    private De de1 = new De(6);
-    private De de2 = new De(6);
+    private final Case[] cases = new Case[30];
 
-    public Plateau() { attributionCases(); }
+    public Plateau() {
+        attributionCases();
+    }
 
-    
-
-    public int getNombreCases() { return cases.length; }
+    public int getNombreCases() {
+        return cases.length;
+    }
 
     private void attributionCases() {
         for (int i = 0; i < cases.length; i++) {
             double tirage = Math.random();
-            if (tirage < 0.2) cases[i] = new CaseRhum(i);
-            else if (tirage < 0.4) cases[i] = new CasePacte(i);
-            else cases[i] = new Case(i);
+
+            if (tirage < 0.2) cases[i] = new CaseRhum();
+            else if (tirage < 0.4) cases[i] = new CasePacte();
+            else cases[i] = new CaseNormale();
         }
+        
+        cases[cases.length - 1] = new CaseTresor();
     }
 
     public Case getCase(int position) {
         if (position < 0) position = 0;
         if (position >= cases.length) position = cases.length - 1;
         return cases[position];
-    }
-    
-    public De getDe1()
-    {
-    	return de1;
-    }
-    
-    public De getDe2()
-    {
-    	return de2;
     }
 }

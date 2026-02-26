@@ -1,4 +1,4 @@
-package main;
+
 
 import jeu.Jeu;
 import jeu.Plateau;

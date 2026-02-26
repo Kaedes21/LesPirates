@@ -1,74 +1,126 @@
 package jeu;
 
+import cases.Case;
+import pirates.Pirate;
+import pirates.PirateEffet;
 import narrateur.Narrateur;
 
 public class Jeu {
 
-    private Joueur joueur1;
-    private Joueur joueur2;
-    private Joueur joueurEnCours;
-    private Plateau plateau;
-    private Narrateur narrateur;
+    private final Pirate pirate1;
+    private final Pirate pirate2;
+    private Pirate pirateEnCours;
+
+    private final Plateau plateau;
+    private final Narrateur narrateur;
+
+    private final De de1 = new De(6);
+    private final De de2 = new De(6);
+
     private int tour = 1;
 
-    public Jeu(Joueur joueur1, Joueur joueur2, Plateau plateau, Narrateur narrateur) {
-        this.joueur1 = joueur1;
-        this.joueur2 = joueur2;
+    public Jeu(Pirate p1, Pirate p2, Plateau plateau, Narrateur narrateur) {
+        this.pirate1 = p1;
+        this.pirate2 = p2;
         this.plateau = plateau;
         this.narrateur = narrateur;
-        this.joueurEnCours = joueur2; 
+        this.pirateEnCours = p2;
     }
 
     public void jouer() {
-        System.out.println(narrateur.annonceDebutJeu(joueur1, joueur2));
+
+        System.out.println(narrateur.annoncerDebutJeu(pirate1, pirate2));
 
         while (!finJeu()) {
 
             changerJoueur();
 
-            System.out.println(narrateur.annonceDebutTour(joueurEnCours, tour));
-            tour++;
-            
-            int resultatDes = joueurEnCours.lancerDes(plateau);
-            if (joueurEnCours.getEffet() == JoueurEffet.IVRE)
-            {
-            	resultatDes = -resultatDes;
-            }
-            else if (joueurEnCours.getEffet() == JoueurEffet.PACTE)
-            {
-            	resultatDes += joueurEnCours.lancerDeUnique(plateau);
-            }
-            System.out.println(narrateur.annonceLancementDes(joueurEnCours, resultatDes));
+            System.out.println(narrateur.annoncerDebutTour(pirateEnCours, tour++));
 
-            System.out.println(narrateur.annonceDeplacement(joueurEnCours));
+            int resultatDes = lancerDes(pirateEnCours);
 
-            joueurEnCours.deplacerPion(resultatDes);
+            System.out.println(narrateur.annoncerLancementDes(pirateEnCours, resultatDes));
 
-            Case caseArrivee = plateau.getCase(joueurEnCours.getPion().getPosition() - 1);
-            if (caseArrivee != null) {
-                System.out.println(narrateur.annonceArriverCase(joueurEnCours, caseArrivee));
-            }
+            deplacerPirate(pirateEnCours, resultatDes);
+
+            Case caseArrivee = plateau.getCase(
+                    pirateEnCours.getPion().getPosition() - 1
+            );
+
+            System.out.println(
+                    narrateur.annoncerArriverCase(pirateEnCours, caseArrivee)
+            );
+
+            caseArrivee.appliqueEffet(pirateEnCours);
+        }
+        
+        if (!pirate1.estVivant()) {
+        	System.out.println(narrateur.annoncerKO(pirate1));
+        }
+        
+        else if (!pirate2.estVivant()) {
+        	System.out.println(narrateur.annoncerKO(pirate2));
+        }
+        System.out.println(narrateur.annoncerGagnant(getGagnant()));
+    }
+
+    private int lancerDes(Pirate pirate) {
+
+        int total = de1.lancerDe() + de2.lancerDe();
+
+        if (pirate.getEffet() == PirateEffet.IVRE) {
+            total = -total;
+        }
+        else if (pirate.getEffet() == PirateEffet.PACTE) {
+            total += de1.lancerDe();
         }
 
-        System.out.println(narrateur.annonceGagnant(getGagnant()));
+        return total;
+    }
+
+    private void deplacerPirate(Pirate pirate, int deplacement) {
+
+        int position = pirate.getPion().getPosition();
+        int derniereCase = plateau.getNombreCases();
+
+        position += deplacement;
+
+        while (position > derniereCase) {
+            position = derniereCase - (position - derniereCase);
+        }
+
+        if (position < 1) position = 1;
+
+        pirate.deplacerPion(position);
     }
 
     private void changerJoueur() {
-        if (joueurEnCours == joueur1) joueurEnCours = joueur2;
-        else joueurEnCours = joueur1;
+        if (pirateEnCours == pirate1) {
+        	pirateEnCours = pirate2;
+        }
+        else {
+        	pirateEnCours = pirate1;
+        }
     }
 
     private boolean finJeu() {
         return getGagnant() != null;
     }
 
-    public Joueur getGagnant() {
-        if (!joueur1.estVivant()) return joueur2;
-        if (!joueur2.estVivant()) return joueur1;
+    private Pirate getGagnant() {
 
-        int derniereCase = plateau.getNombreCases(); // 30
-        if (joueur1.getPion().getPosition() >= derniereCase) return joueur1;
-        if (joueur2.getPion().getPosition() >= derniereCase) return joueur2;
+        if (!pirate1.estVivant()) {
+        	return pirate2;
+        	}
+        
+        if (!pirate2.estVivant()) {
+        	return pirate1;
+        	}
+
+        int derniereCase = plateau.getNombreCases();
+
+        if (pirate1.getPion().getPosition() >= derniereCase) return pirate1;
+        if (pirate2.getPion().getPosition() >= derniereCase) return pirate2;
 
         return null;
     }
