@@ -23,6 +23,4 @@ public class De {
 	{
 		return random.nextInt(1,valeur);
 	}
-	
-	
 }

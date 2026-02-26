@@ -14,7 +14,6 @@ public class CasePacte extends Case {
     @Override
     public String getDescription(Pirate pirate) {
         return pirate.getNom() +
-               " conclut un pacte avec un esprit des mers !\n" +
-               "Il perd 2 coeurs mais prépare un lancer renforcé.\n";
+               " conclut un pacte avec un esprit des mers !\n" + "Il perd 2 coeurs mais prépare un lancer renforcé.\n";
     }
 }

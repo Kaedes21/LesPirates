@@ -19,12 +19,12 @@ public class Jeu {
 
     private int tour = 1;
 
-    public Jeu(Pirate p1, Pirate p2, Plateau plateau, Narrateur narrateur) {
-        this.pirate1 = p1;
-        this.pirate2 = p2;
+    public Jeu(Pirate pirate1, Pirate pirate2, Plateau plateau, Narrateur narrateur) {
+        this.pirate1 = pirate1;
+        this.pirate2 = pirate2;
         this.plateau = plateau;
         this.narrateur = narrateur;
-        this.pirateEnCours = p2;
+        this.pirateEnCours = pirate2;
     }
 
     public void jouer() {

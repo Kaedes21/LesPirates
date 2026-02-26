@@ -12,7 +12,6 @@ public class CaseRhum extends Case {
     @Override
     public String getDescription(Pirate pirate) {
         return pirate.getNom() +
-               " trouve une bouteille de rhum et la boit cul sec !\n" +
-               "Il récupère un coeur.\n";
+               " trouve une bouteille de rhum et la boit cul sec !\n" + "Il récupère un coeur.\n";
     }
 }

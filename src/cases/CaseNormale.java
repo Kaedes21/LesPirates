@@ -6,7 +6,7 @@ public class CaseNormale extends Case {
 
     @Override
     public void appliqueEffet(Pirate pirate) {
-        // aucun effet
+    	//Pas d'effet
     }
 
     @Override
