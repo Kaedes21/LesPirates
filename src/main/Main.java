@@ -13,7 +13,7 @@ public class Main {
         Plateau plateau = new Plateau();
         Pirate joueur1 = new Pirate("Pirate1", CouleurPion.BLEU);
         Pirate joueur2 = new Pirate("Pirate2", CouleurPion.ROUGE);
-        Narrateur narrateur = new Narrateur("Narrateur");
+        Narrateur narrateur = new Narrateur("La Mouette");
 
         Jeu jeu = new Jeu(joueur1, joueur2, plateau, narrateur);
         jeu.jouer();
