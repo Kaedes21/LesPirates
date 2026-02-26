@@ -4,7 +4,7 @@ import jeu.Jeu;
 import jeu.Plateau;
 import narrateur.Narrateur;
 import pirates.Pirate;
-import pirates.Pion.CouleurPion;
+import pirates.CouleurPion;
 
 public class Main {
 

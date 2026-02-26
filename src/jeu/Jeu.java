@@ -47,8 +47,7 @@ public class Jeu {
                     pirateEnCours.getPion().getPosition() - 1
             );
 
-            System.out.println(
-                    narrateur.annoncerArriverCase(pirateEnCours, caseArrivee)
+            System.out.println(narrateur.annoncerArriverCase(pirateEnCours, caseArrivee)
             );
 
             caseArrivee.appliqueEffet(pirateEnCours);

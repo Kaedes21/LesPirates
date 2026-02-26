@@ -9,7 +9,7 @@ public class Pirate {
 
     private static final int COEURS_MAX = 5;
 
-    public Pirate(String nom, Pion.CouleurPion couleur) {
+    public Pirate(String nom, CouleurPion couleur) {
         this.nom = nom;
         this.coeurs = COEURS_MAX;
         this.pion = new Pion(couleur);
@@ -24,13 +24,13 @@ public class Pirate {
     public boolean estVivant() {
         return coeurs > 0;
     }
-
+    
     public void perdreCoeur(int valeur) {
         if (valeur > 0) {
             coeurs = Math.max(0, coeurs - valeur);
         }
     }
-
+    
     public void gagnerCoeur(int valeur) {
         if (valeur > 0) {
             coeurs = Math.min(COEURS_MAX, coeurs + valeur);

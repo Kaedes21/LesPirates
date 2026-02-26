@@ -5,11 +5,6 @@ public class Pion {
     private final CouleurPion couleur;
     private int position;
 
-    public enum CouleurPion {
-        ROUGE,
-        BLEU
-    }
-
     public Pion(CouleurPion couleur) {
         this.couleur = couleur;
         this.position = 1;
