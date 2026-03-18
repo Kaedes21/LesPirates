@@ -1,6 +1,5 @@
 package jeu;
 
-import java.util.Scanner;
 import cases.Case;
 import jounaldebord.Narrateur;
 import pirates.Pirate;
@@ -17,27 +16,20 @@ public class Jeu {
     private final De de2 = new De(6);
     private int tour = 1;
 
-    public Jeu(Pirate pirate1, Pirate pirate2, Plateau plateau, Narrateur narrateur) {
-        this.pirate1 = pirate1;
-        this.pirate2 = pirate2;
-        this.plateau = plateau;
+    public Jeu(Narrateur narrateur) {
         this.narrateur = narrateur;
-        this.pirateEnCours = pirate2;
+        this.plateau = new Plateau(); 
+        
+        this.pirate1 = new Pirate(narrateur.demanderNomPirate(1), CouleurPion.BLEU);
+        this.pirate2 = new Pirate(narrateur.demanderNomPirate(2), CouleurPion.ROUGE);
     }
 
-    public static Pirate initialiserPirate(Scanner scanner, int numero, CouleurPion couleur) {
-        System.out.println("Entrez le nom du pirate n°" + numero + " :");
-        String nom = scanner.nextLine();
-        return new Pirate(nom,couleur);
-    }
-    
-    public void jouer(Scanner scanner) {
-    	Case caseArrivee;
+    public void jouer() {
+        Case caseArrivee;
         System.out.println(narrateur.annoncerDebutJeu(pirate1, pirate2));
 
         while (!finJeu()) {
-            System.out.println("\nAppuyez sur Entrée pour lancer le tour...");
-            scanner.nextLine();
+            narrateur.attendreEntree();
 
             changerJoueur();
 
@@ -63,11 +55,11 @@ public class Jeu {
             System.out.println(narrateur.annoncerKO(pirate2));
         }
         System.out.println(narrateur.annoncerGagnant(getGagnant()));
-        
+        narrateur.fermer();
     }
 
     private int lancerDes(Pirate pirate) {
-    	int scoreInitial = de1.lancerDe() + de2.lancerDe();
+        int scoreInitial = de1.lancerDe() + de2.lancerDe();
         return pirate.getEffet().calculerDeplacement(scoreInitial, de1);
     }
 
@@ -75,9 +67,11 @@ public class Jeu {
         int position = pirate.getPion().getPosition();
         int derniereCase = plateau.getNombreCases();
         position += deplacement;
+        
         while (position > derniereCase) {
             position = derniereCase - (position - derniereCase);
         }
+        
         if (position < 1) position = 1;
         pirate.deplacerPion(position);
     }
@@ -85,8 +79,7 @@ public class Jeu {
     private void changerJoueur() {
         if (pirateEnCours == pirate1) {
             pirateEnCours = pirate2;
-        }
-        else {
+        } else {
             pirateEnCours = pirate1;
         }
     }
