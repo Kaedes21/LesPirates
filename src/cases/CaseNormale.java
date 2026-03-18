@@ -1,13 +1,12 @@
 package cases;
 
 import pirates.Pirate;
-import pirates.PirateEffet;
-
+import pirates.effets.EffetNormal;
 public class CaseNormale extends Case {
 
     @Override
     public void appliqueEffet(Pirate pirate) {
-    	pirate.setEffet(PirateEffet.NORMAL);
+    	pirate.setEffet(new EffetNormal());
     }
 
     @Override

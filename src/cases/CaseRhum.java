@@ -1,14 +1,14 @@
 package cases;
 
 import pirates.Pirate;
-import pirates.PirateEffet;
+import pirates.effets.EffetIvre;
 
 public class CaseRhum extends Case {
 
     @Override
     public void appliqueEffet(Pirate pirate) {
         pirate.gagnerCoeur(1);
-        pirate.setEffet(PirateEffet.IVRE);
+        pirate.setEffet(new EffetIvre());
     }
 
     @Override

@@ -2,10 +2,9 @@ package jeu;
 
 import java.util.Scanner;
 import cases.Case;
-import pirates.CouleurPion;
+import jounaldebord.Narrateur;
 import pirates.Pirate;
-import pirates.PirateEffet;
-import narrateur.Narrateur;
+import pirates.pions.CouleurPion;
 
 public class Jeu {
 
@@ -31,9 +30,9 @@ public class Jeu {
         String nom = scanner.nextLine();
         return new Pirate(nom,couleur);
     }
-
+    
     public void jouer(Scanner scanner) {
-
+    	Case caseArrivee;
         System.out.println(narrateur.annoncerDebutJeu(pirate1, pirate2));
 
         while (!finJeu()) {
@@ -50,13 +49,11 @@ public class Jeu {
 
             deplacerPirate(pirateEnCours, resultatDes);
 
-            Case caseArrivee = plateau.getCase(
-                    pirateEnCours.getPion().getPosition() - 1
-            );
-
-            System.out.println(narrateur.annoncerArriverCase(pirateEnCours, caseArrivee));
-
+            caseArrivee = plateau.getCase(pirateEnCours.getPion().getPosition() - 1);
+            
             caseArrivee.appliqueEffet(pirateEnCours);
+
+            System.out.println(narrateur.annoncerArriverCase(pirateEnCours, caseArrivee));            
         }
         
         if (!pirate1.estVivant()) {
@@ -67,18 +64,11 @@ public class Jeu {
         }
         System.out.println(narrateur.annoncerGagnant(getGagnant()));
         
-        scanner.close();
     }
 
     private int lancerDes(Pirate pirate) {
-        int total = de1.lancerDe() + de2.lancerDe();
-        if (pirate.getEffet() == PirateEffet.IVRE) {
-            total = -total;
-        }
-        else if (pirate.getEffet() == PirateEffet.PACTE) {
-            total += de1.lancerDe();
-        }
-        return total;
+    	int scoreInitial = de1.lancerDe() + de2.lancerDe();
+        return pirate.getEffet().calculerDeplacement(scoreInitial, de1);
     }
 
     private void deplacerPirate(Pirate pirate, int deplacement) {

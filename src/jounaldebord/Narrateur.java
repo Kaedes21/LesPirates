@@ -1,4 +1,4 @@
-package narrateur;
+package jounaldebord;
 
 import cases.Case;
 import pirates.Pirate;
@@ -22,16 +22,7 @@ public class Narrateur implements IJournalDeBord {
 
         String texte = "\nTour " + tour + " - Au tour de " + pirate.getNom() + " (" + pirate.getCoeurs() + " coeurs) (position actuelle: " +pirate.getPion().getPosition() +").\n";
 
-        switch (pirate.getEffet()) {
-            case PACTE:
-                texte += "Il est sous l'effet d'un pacte mystérieux.\n";
-                break;
-            case IVRE:
-                texte += "Il tangue encore sous l'effet du rhum.\n";
-                break;
-            default:
-                texte += "Tour normal.\n";
-        }
+        texte += pirate.getEffet().getDescription();
 
         return texte;
     }

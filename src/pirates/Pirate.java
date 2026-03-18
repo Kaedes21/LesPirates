@@ -1,11 +1,16 @@
 package pirates;
 
+import pirates.effets.EffetNormal;
+import pirates.effets.IPirateEffet;
+import pirates.pions.CouleurPion;
+import pirates.pions.Pion;
+
 public class Pirate {
 
     private final String nom;
     private int coeurs;
     private final Pion pion;
-    private PirateEffet effet;
+    private IPirateEffet effet;
 
     private static final int COEURS_MAX = 5;
 
@@ -13,13 +18,13 @@ public class Pirate {
         this.nom = nom;
         this.coeurs = COEURS_MAX;
         this.pion = new Pion(couleur);
-        this.effet = PirateEffet.NORMAL;
+        this.effet = new EffetNormal();
     }
 
     public String getNom() { return nom; }
     public int getCoeurs() { return coeurs; }
     public Pion getPion() { return pion; }
-    public PirateEffet getEffet() { return effet; }
+    public IPirateEffet getEffet() { return effet; }
 
     public boolean estVivant() {
         return coeurs > 0;
@@ -37,7 +42,7 @@ public class Pirate {
         }
     }
 
-    public void setEffet(PirateEffet effet) {
+    public void setEffet(IPirateEffet effet) {
         this.effet = effet;
     }
 

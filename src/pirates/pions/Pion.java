@@ -1,4 +1,4 @@
-package pirates;
+package pirates.pions;
 
 public class Pion {
 

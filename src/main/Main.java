@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 import jeu.Jeu;
 import jeu.Plateau;
-import narrateur.Narrateur;
+import jounaldebord.Narrateur;
 import pirates.Pirate;
-import pirates.CouleurPion;
+import pirates.pions.CouleurPion;
 
 public class Main {
 

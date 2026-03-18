@@ -21,6 +21,6 @@ public class De {
 	
 	public int lancerDe()
 	{
-		return random.nextInt(1,valeur);
+		return random.nextInt(1,valeur + 1);
 	}
 }

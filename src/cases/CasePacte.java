@@ -1,14 +1,14 @@
 package cases;
 
 import pirates.Pirate;
-import pirates.PirateEffet;
+import pirates.effets.EffetPacte;
 
 public class CasePacte extends Case {
 
     @Override
     public void appliqueEffet(Pirate pirate) {
         pirate.perdreCoeur(2);
-        pirate.setEffet(PirateEffet.PACTE);
+        pirate.setEffet(new EffetPacte());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package narrateur;
+package jounaldebord;
 
 
 import cases.Case;
