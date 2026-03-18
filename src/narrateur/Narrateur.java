@@ -20,7 +20,7 @@ public class Narrateur implements IJournalDeBord {
     @Override
     public String annoncerDebutTour(Pirate joueur, int tour) {
 
-        String texte = "\nTour " + tour + " - Au tour de " + joueur.getNom() + " (" + joueur.getCoeurs() + " coeurs) (position : " +joueur.getPion().getPosition() +").\n";
+        String texte = "\nTour " + tour + " - Au tour de " + joueur.getNom() + " (" + joueur.getCoeurs() + " coeurs) (position actuelle: " +joueur.getPion().getPosition() +").\n";
 
         switch (joueur.getEffet()) {
             case PACTE:
