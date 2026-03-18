@@ -46,7 +46,7 @@ public class Jeu {
 
             int resultatDes = lancerDes(pirateEnCours);
 
-            System.out.println(narrateur.annoncerLancementDes(pirateEnCours, resultatDes));
+            System.out.println(narrateur.annoncerLancementDes(resultatDes));
 
             deplacerPirate(pirateEnCours, resultatDes);
 

@@ -12,17 +12,17 @@ public class Narrateur implements IJournalDeBord {
     }
 
     @Override
-    public String annoncerDebutJeu(Pirate joueur1, Pirate joueur2) {
+    public String annoncerDebutJeu(Pirate pirate1, Pirate pirate2) {
 
-        return "Yaaaaargh ! Je suis " + nom + " et je présente la course.\n" + joueur1.getNom() + " affronte " + joueur2.getNom() + " !\n";
+        return "Yaaaaargh ! Je suis " + nom + " et je présente la course.\n" + pirate1.getNom() + " affronte " + pirate2.getNom() + " !\n";
     }
 
     @Override
-    public String annoncerDebutTour(Pirate joueur, int tour) {
+    public String annoncerDebutTour(Pirate pirate, int tour) {
 
-        String texte = "\nTour " + tour + " - Au tour de " + joueur.getNom() + " (" + joueur.getCoeurs() + " coeurs) (position actuelle: " +joueur.getPion().getPosition() +").\n";
+        String texte = "\nTour " + tour + " - Au tour de " + pirate.getNom() + " (" + pirate.getCoeurs() + " coeurs) (position actuelle: " +pirate.getPion().getPosition() +").\n";
 
-        switch (joueur.getEffet()) {
+        switch (pirate.getEffet()) {
             case PACTE:
                 texte += "Il est sous l'effet d'un pacte mystérieux.\n";
                 break;
@@ -37,24 +37,24 @@ public class Narrateur implements IJournalDeBord {
     }
 
     @Override
-    public String annoncerLancementDes(Pirate joueur, int valeur) {
-        return joueur.getNom() + " lance les dés : " + valeur + ".\n";
+    public String annoncerLancementDes(int valeur) {
+        return "Les dés sont lancés ! Résultat : " + valeur + ".\n";
     }
 
     @Override
-    public String annoncerDeplacement(Pirate joueur) {
-        return "Le pion " + joueur.getPion().getCouleur() + " avance.\n";
+    public String annoncerDeplacement(Pirate pirate) {
+        return "Le pion " + pirate.getPion().getCouleur() + " avance.\n";
     }
 
     @Override
-    public String annoncerArriverCase(Pirate joueur, Case caseArrivee) {
+    public String annoncerArriverCase(Pirate pirate, Case caseArrivee) {
 
-        return "Le pion arrive sur la case " + joueur.getPion().getPosition() + ".\n" + caseArrivee.getDescription(joueur);
+        return "Le pirate arrive sur la case " + pirate.getPion().getPosition() + ".\n" + caseArrivee.getDescription(pirate);
     }
 
     @Override
-    public String annoncerGagnant(Pirate joueur) {
-        return "Le vainqueur est " + joueur.getNom() + " !";
+    public String annoncerGagnant(Pirate pirate) {
+        return "Le vainqueur est " + pirate.getNom() + " !";
     }
     
     @Override
