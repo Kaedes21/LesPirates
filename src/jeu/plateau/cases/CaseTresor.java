@@ -6,6 +6,7 @@ public class CaseTresor extends Case {
 
     @Override
     public void appliqueEffet(Pirate pirate) {
+      // No effect
     }
 
     @Override
