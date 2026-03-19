@@ -1,20 +1,20 @@
-package pirates.effets;
+package jeu.pirates.effets;
 
 import jeu.De;
 
-public class EffetNormal implements IPirateEffet {
+public class EffetIvre implements IPirateEffet {
     @Override
     public int calculerDeplacement(int score, De de) {
-        return score;
+        return -score;
     }
 
     @Override
     public String getDescription() {
-        return "Tour normal.";
+        return "Il tangue encore sous l'effet du rhum.";
     }
 
     @Override
     public String getNom() {
-        return "NORMAL";
+        return "IVRE";
     }
 }

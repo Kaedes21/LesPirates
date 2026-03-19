@@ -1,7 +1,7 @@
-package cases;
+package jeu.plateau.cases;
 
-import pirates.Pirate;
-import pirates.effets.EffetNormal;
+import jeu.pirates.Pirate;
+import jeu.pirates.effets.EffetNormal;
 public class CaseNormale extends Case {
 
     @Override

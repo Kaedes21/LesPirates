@@ -1,7 +1,7 @@
-package cases;
+package jeu.plateau.cases;
 
-import pirates.Pirate;
-import pirates.effets.EffetPacte;
+import jeu.pirates.Pirate;
+import jeu.pirates.effets.EffetPacte;
 
 public class CasePacte extends Case {
 

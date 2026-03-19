@@ -1,8 +1,9 @@
 package jounaldebord;
 
 import java.util.Scanner;
-import cases.Case;
-import pirates.Pirate;
+
+import jeu.pirates.Pirate;
+import jeu.plateau.cases.Case;
 
 public class Narrateur implements IJournalDeBord {
 

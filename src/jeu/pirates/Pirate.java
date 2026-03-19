@@ -1,9 +1,9 @@
-package pirates;
+package jeu.pirates;
 
-import pirates.effets.EffetNormal;
-import pirates.effets.IPirateEffet;
-import pirates.pions.CouleurPion;
-import pirates.pions.Pion;
+import jeu.pirates.effets.EffetNormal;
+import jeu.pirates.effets.IPirateEffet;
+import jeu.pirates.pions.CouleurPion;
+import jeu.pirates.pions.Pion;
 
 public class Pirate {
 

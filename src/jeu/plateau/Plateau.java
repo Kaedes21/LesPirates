@@ -1,11 +1,12 @@
-package jeu;
+package jeu.plateau;
 
 import java.util.Random;
-import cases.Case;
-import cases.CaseTresor;
-import cases.CaseNormale;
-import cases.CasePacte;
-import cases.CaseRhum;
+
+import jeu.plateau.cases.Case;
+import jeu.plateau.cases.CaseNormale;
+import jeu.plateau.cases.CasePacte;
+import jeu.plateau.cases.CaseRhum;
+import jeu.plateau.cases.CaseTresor;
 
 public class Plateau {
 

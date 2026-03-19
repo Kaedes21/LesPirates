@@ -1,4 +1,4 @@
-package pirates.pions;
+package jeu.pirates.pions;
 
 public enum CouleurPion {
     ROUGE,

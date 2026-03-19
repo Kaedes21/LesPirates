@@ -1,7 +1,7 @@
 package jounaldebord;
 
-import cases.Case;
-import pirates.Pirate;
+import jeu.pirates.Pirate;
+import jeu.plateau.cases.Case;
 
 public interface IJournalDeBord {
 	public void attendreEntree();

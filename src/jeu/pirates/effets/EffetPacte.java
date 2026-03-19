@@ -1,4 +1,4 @@
-package pirates.effets;
+package jeu.pirates.effets;
 
 import jeu.De;
 

@@ -1,6 +1,6 @@
-package cases;
+package jeu.plateau.cases;
 
-import pirates.Pirate;
+import jeu.pirates.Pirate;
 
 public abstract class Case {
 

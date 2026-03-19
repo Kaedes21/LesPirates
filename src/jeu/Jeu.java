@@ -1,9 +1,10 @@
 package jeu;
 
-import cases.Case;
+import jeu.pirates.Pirate;
+import jeu.pirates.pions.CouleurPion;
+import jeu.plateau.Plateau;
+import jeu.plateau.cases.Case;
 import jounaldebord.Narrateur;
-import pirates.Pirate;
-import pirates.pions.CouleurPion;
 
 public class Jeu {
 

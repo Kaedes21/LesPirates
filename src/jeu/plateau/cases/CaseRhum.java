@@ -1,7 +1,7 @@
-package cases;
+package jeu.plateau.cases;
 
-import pirates.Pirate;
-import pirates.effets.EffetIvre;
+import jeu.pirates.Pirate;
+import jeu.pirates.effets.EffetIvre;
 
 public class CaseRhum extends Case {
 
