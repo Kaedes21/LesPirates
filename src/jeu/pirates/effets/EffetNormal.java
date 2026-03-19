@@ -3,6 +3,7 @@ package jeu.pirates.effets;
 import jeu.De;
 
 public class EffetNormal implements IPirateEffet {
+	
     @Override
     public int calculerDeplacement(int score, De de) {
         return score;
@@ -13,8 +14,4 @@ public class EffetNormal implements IPirateEffet {
         return "Tour normal.";
     }
 
-    @Override
-    public String getNom() {
-        return "NORMAL";
-    }
 }

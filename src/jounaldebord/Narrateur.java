@@ -14,7 +14,19 @@ public class Narrateur implements IJournalDeBord {
         this.nom = nom;
         this.scanner = new Scanner(System.in);
     }
+    
+    @Override
+    public void attendreEntree() {
+        System.out.println("\n[Appuyez sur Entrée pour continuer...]");
+        scanner.nextLine();
+    }
 
+    @Override
+    public String demanderNomPirate(int numero) {
+        System.out.print("Hé oh ! Matelot n°" + numero + ", décline ton identité : ");
+        return scanner.nextLine();
+    }
+    
     @Override
     public String annoncerDebutJeu(Pirate pirate1, Pirate pirate2) {
         String texte = "\n*****************************************************\n";
@@ -77,18 +89,6 @@ public class Narrateur implements IJournalDeBord {
         texte += "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
         
         return texte;
-    }
-
-    @Override
-    public void attendreEntree() {
-        System.out.println("\n[Appuyez sur Entrée pour continuer...]");
-        scanner.nextLine();
-    }
-
-    @Override
-    public String demanderNomPirate(int numero) {
-        System.out.print("Hé oh ! Matelot n°" + numero + ", décline ton identité : ");
-        return scanner.nextLine();
     }
 
     @Override

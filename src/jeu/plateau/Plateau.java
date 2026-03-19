@@ -21,9 +21,6 @@ public class Plateau {
         return cases.length;
     }
     
-    /**
-     *  Positionne les cases aléatoirement sur le plateau (case finale tout le temps de type Trésor)
-     */
     private void attributionCases() {
         for (int i = 0; i < cases.length; i++) {
             double tirage = random.nextDouble();

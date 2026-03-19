@@ -49,6 +49,8 @@ public class Jeu {
             System.out.println(narrateur.annoncerArriverCase(pirateEnCours, caseArrivee));            
         }
         
+        narrateur.attendreEntree();
+        
         if (!pirate1.estVivant()) {
             System.out.println(narrateur.annoncerKO(pirate1));
         }

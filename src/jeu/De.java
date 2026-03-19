@@ -4,12 +4,12 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public class De {
-	private int valeur;
 	
+	private int valeur;
 	private Random random;
 	
-	public De(int valeur)
-	{
+	public De(int valeur) {
+		
 		this.valeur = valeur;
 		
 		try {
@@ -19,8 +19,7 @@ public class De {
 	    }
 	}
 	
-	public int lancerDe()
-	{
+	public int lancerDe() {
 		return random.nextInt(1,valeur + 1);
 	}
 }
